@@ -9,12 +9,12 @@ import android.widget.SeekBar;
 public abstract class OnEditableSeekBarChangeListener {
 
 
-        void onEditableSeekBarProgressChanged(SeekBar seekBar, int progress, boolean fromUser){}
-        void onStartTrackingTouch(SeekBar seekBar){}
-        void onStopTrackingTouch(SeekBar seekBar){}
-        void onEnteredValueTooHigh(){}
-        void onEnteredValueTooLow(){}
-        void onEditableSeekBarValueChanged(int id, int value){}
+        public void onEditableSeekBarProgressChanged(SeekBar seekBar, int progress, boolean fromUser){}
+        public void onStartTrackingTouch(SeekBar seekBar){}
+        public void onStopTrackingTouch(SeekBar seekBar){}
+        public void onEnteredValueTooHigh(){}
+        public void onEnteredValueTooLow(){}
+        public void onEditableSeekBarValueChanged(int id, int value){}
     }
 
 

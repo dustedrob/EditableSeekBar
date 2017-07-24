@@ -47,7 +47,7 @@ public class EditableSeekBar extends RelativeLayout implements SeekBar.OnSeekBar
     private static final int EDITTEXT_DEFAULT_FONT_SIZE = 18;
     private static final int ANIMATION_DEFAULT_DURATION = 300;
 
-    private OnEditableSeekBarChangeListener mListener;
+    private OnEditableSeekBarChangeListener listener;
 
 
 
@@ -123,7 +123,7 @@ public class EditableSeekBar extends RelativeLayout implements SeekBar.OnSeekBar
      * @param listener OnEditableSeekBarChangeListener
      */
     public void setOnEditableSeekBarChangeListener(OnEditableSeekBarChangeListener listener){
-        this.mListener = listener;
+        this.listener = listener;
     }
 
     @Override
@@ -139,14 +139,14 @@ public class EditableSeekBar extends RelativeLayout implements SeekBar.OnSeekBar
                 esbEditText.setSelection(esbEditText.getText().length());
         }
 
-        if(mListener != null)
-            mListener.onEditableSeekBarProgressChanged(seekBar, currentValue, fromUser);
+        if(listener != null)
+            listener.onEditableSeekBarProgressChanged(seekBar, currentValue, fromUser);
     }
 
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
-        if (mListener != null)
-            mListener.onStartTrackingTouch(seekBar);
+        if (listener != null)
+            listener.onStartTrackingTouch(seekBar);
 
         touching = true;
 
@@ -160,15 +160,15 @@ public class EditableSeekBar extends RelativeLayout implements SeekBar.OnSeekBar
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
-        if(mListener != null)
-            mListener.onStopTrackingTouch(seekBar);
+        if(listener != null)
+            listener.onStopTrackingTouch(seekBar);
 
         touching = false;
 
         currentValue = translateToRealValue(seekBar.getProgress());
 
-        if(mListener != null)
-            mListener.onEditableSeekBarValueChanged(esbSeekBar.getId(), currentValue);
+        if(listener != null)
+            listener.onEditableSeekBarValueChanged(esbSeekBar.getId(), currentValue);
     }
 
 
@@ -176,16 +176,16 @@ public class EditableSeekBar extends RelativeLayout implements SeekBar.OnSeekBar
     public void onEditTextKeyboardDismissed() {
         checkValue();
 
-        if(mListener != null)
-            mListener.onEditableSeekBarValueChanged(esbSeekBar.getId(), currentValue);
+        if(listener != null)
+            listener.onEditableSeekBarValueChanged(esbSeekBar.getId(), currentValue);
     }
 
     @Override
     public void onEditTextKeyboardDone() {
         checkValue();
 
-        if(mListener != null)
-            mListener.onEditableSeekBarValueChanged(esbSeekBar.getId(), currentValue);
+        if(listener != null)
+            listener.onEditableSeekBarValueChanged(esbSeekBar.getId(), currentValue);
 
         hideKeyboard();
     }
@@ -217,9 +217,9 @@ public class EditableSeekBar extends RelativeLayout implements SeekBar.OnSeekBar
                 else
                     esbEditText.setSelection(esbEditText.getText().length());
 
-                if(mListener != null) {
-                    mListener.onEnteredValueTooHigh();
-//                    mListener.onEditableSeekBarValueChanged(currentValue);
+                if(listener != null) {
+                    listener.onEnteredValueTooHigh();
+//                    listener.onEditableSeekBarValueChanged(currentValue);
                 }
             }
 
@@ -232,9 +232,9 @@ public class EditableSeekBar extends RelativeLayout implements SeekBar.OnSeekBar
                 else
                     esbEditText.setSelection(esbEditText.getText().length());
 
-                if(mListener != null) {
-                    mListener.onEnteredValueTooLow();
-//                    mListener.onEditableSeekBarValueChanged(currentValue);
+                if(listener != null) {
+                    listener.onEnteredValueTooLow();
+//                    listener.onEditableSeekBarValueChanged(currentValue);
                 }
             }
 
@@ -242,8 +242,8 @@ public class EditableSeekBar extends RelativeLayout implements SeekBar.OnSeekBar
                 currentValue = value;
                 setSeekBarValue(translateFromRealValue(currentValue));
 
-                if(mListener != null)
-                    mListener.onEditableSeekBarValueChanged(esbSeekBar.getId(),currentValue);
+                if(listener != null)
+                    listener.onEditableSeekBarValueChanged(esbSeekBar.getId(),currentValue);
             }
         }else {
 //            currentValue = minValue;
@@ -274,8 +274,8 @@ public class EditableSeekBar extends RelativeLayout implements SeekBar.OnSeekBar
                     checkValue();
                 }
 
-                if(mListener != null && sendValueChanged)
-                    mListener.onEditableSeekBarValueChanged(esbSeekBar.getId(), currentValue);
+                if(listener != null && sendValueChanged)
+                    listener.onEditableSeekBarValueChanged(esbSeekBar.getId(), currentValue);
 //                    setEditTextValue(translateFromRealValue(currentValue));
 
             }else{
@@ -397,15 +397,15 @@ public class EditableSeekBar extends RelativeLayout implements SeekBar.OnSeekBar
     private boolean isInRange(int value){
 
         if(value < minValue){
-            if(mListener != null)
-                mListener.onEnteredValueTooLow();
+            if(listener != null)
+                listener.onEnteredValueTooLow();
 
             return false;
         }
 
         if(value > maxValue){
-            if(mListener != null)
-                mListener.onEnteredValueTooHigh();
+            if(listener != null)
+                listener.onEnteredValueTooHigh();
 
             return false;
         }
