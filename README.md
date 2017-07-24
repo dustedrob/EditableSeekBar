@@ -5,16 +5,15 @@ Combination of SeekBar and EditText. Android 4.1.2+
 ![Sample Screenshot](https://raw.githubusercontent.com/gregacucnik/EditableSeekBar/master/editableseekbar2.gif)
 
 # Usage
-*For a working implementation in the sample app, see the `app/` folder.*
 
 1. Add the dependency in your build.gradle
 
-            compile 'com.gregacucnik:editableseekbar:1.2'
+            compile 'me.roberto:editableseekbar:1.2'
             
 2. Include EditableSeekBar widget in your layout
     
     ```
-            <com.gregacucnik.EditableSeekBar
+            <me.roberto.EditableSeekBar
                     android:id="@+id/esbExample"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -44,13 +43,11 @@ Combination of SeekBar and EditText. Android 4.1.2+
  * `esbEditTextFontSize` Custom EditText font size (default: 18sp)
 
 
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-EditableSeekBar-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2888)
-
 License
 =======
 The MIT License (MIT)
 
-Copyright (c) 2015 Grega Čučnik
+Copyright (c) 2015 Roberto Betancourt
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

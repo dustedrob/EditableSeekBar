@@ -1,31 +1,15 @@
 apply plugin: 'com.android.library'
 
-ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'editableseekbar'
-
-    publishedGroupId = 'com.gregacucnik'
-    libraryName = 'EditableSeekBar'
-    artifact = 'editableseekbar'
-
-    libraryDescription = 'Combination of SeekBar and EditText. Android 4.1.2+'
-
-    libraryVersion = '1.2'
-
-    developerId = 'gregacucnik'
-    developerName = 'Grega Čučnik'
-    developerEmail = ''
-}
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.0"
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 23
-        versionCode 3
-        versionName "1.2"
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
     }
     buildTypes {
         release {
@@ -33,13 +17,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    repositories
+            {
+                maven {
+                    url "https://maven.google.com"
+                }
+            }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:appcompat-v7:26.0.0'
 }
-
-apply from: 'https://raw.githubusercontent.com/attwellBrian/JCenter/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/attwellBrian/JCenter/master/bintrayv1.gradle'

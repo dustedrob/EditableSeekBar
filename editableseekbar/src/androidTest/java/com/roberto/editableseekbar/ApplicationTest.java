@@ -1,4 +1,4 @@
-package com.gregacucnik.editableseekbar;
+package com.roberto.editableseekbar;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
