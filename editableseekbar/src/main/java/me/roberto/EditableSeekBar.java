@@ -88,6 +88,8 @@ public class EditableSeekBar extends RelativeLayout implements SeekBar.OnSeekBar
             int min = a.getInteger(R.styleable.EditableSeekBar_esbMin, SEEKBAR_DEFAULT_MIN);
             int max = a.getInteger(R.styleable.EditableSeekBar_esbMax, SEEKBAR_DEFAULT_MAX);
 
+            int esbEms=a.getInteger(R.styleable.EditableSeekBar_esbTitleWidth,0 );
+            esbTitle.setMinEms(esbEms);
             setRange(min, max);
 
             setValue(a.getInteger(R.styleable.EditableSeekBar_esbValue, translateToRealValue(getRange()/2)));

@@ -10,5 +10,6 @@
         <attr name="esbAnimateSeekBar" format="boolean" />
         <attr name="esbEditTextWidth" format="dimension" />
         <attr name="esbEditTextFontSize" format="dimension" />
+        <attr name="esbTitleWidth" format="integer"/>
     </declare-styleable>
 </resources>
