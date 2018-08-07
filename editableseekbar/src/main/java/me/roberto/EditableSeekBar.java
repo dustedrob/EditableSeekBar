@@ -45,8 +45,7 @@ public class EditableSeekBar extends RelativeLayout implements SeekBar.OnSeekBar
 
     private static final int SEEKBAR_DEFAULT_MAX = 100;
     private static final int SEEKBAR_DEFAULT_MIN = 0;
-    private static final int EDITTEXT_DEFAULT_WIDTH = WRAP_CONTENT;
-    private static final int TITLE_DEFAULT_WIDTH = 50;
+    private static final int EDITTEXT_DEFAULT_WIDTH = 50;
     private static final int EDITTEXT_DEFAULT_FONT_SIZE = 18;
     private static final int ANIMATION_DEFAULT_DURATION = 300;
 
@@ -73,7 +72,6 @@ public class EditableSeekBar extends RelativeLayout implements SeekBar.OnSeekBar
 
 
         float defaultEditTextWidth = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, EDITTEXT_DEFAULT_WIDTH, getResources().getDisplayMetrics());
-        float defaultTitleWidth = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, TITLE_DEFAULT_WIDTH, getResources().getDisplayMetrics());
         int defaultEditTextFontSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, EDITTEXT_DEFAULT_FONT_SIZE, getResources().getDisplayMetrics());
 
         TypedArray a = context.getTheme().obtainStyledAttributes(
@@ -92,12 +90,6 @@ public class EditableSeekBar extends RelativeLayout implements SeekBar.OnSeekBar
             int min = a.getInteger(R.styleable.EditableSeekBar_esbMin, SEEKBAR_DEFAULT_MIN);
             int max = a.getInteger(R.styleable.EditableSeekBar_esbMax, SEEKBAR_DEFAULT_MAX);
 
-
-            ViewGroup.LayoutParams params=esbTitle.getLayoutParams();
-            params.width = (int)a.getDimension(R.styleable.EditableSeekBar_esbTitleWidth, defaultTitleWidth);
-
-
-            esbTitle.setWidth(TypedValue.COMPLEX_UNIT_DIP);
             setRange(min, max);
 
             setValue(a.getInteger(R.styleable.EditableSeekBar_esbValue, translateToRealValue(getRange()/2)));
